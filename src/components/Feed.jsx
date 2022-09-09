@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Box, Stack, Typography } from "@mui/material";
 import { Sidebar, Videos } from "./";
-import { fetchFromApi } from "utils/fetchFromAPI";
+import { fetchFromAPI } from "utils/fetchFromAPI";
 const Feed = () => {
   const [selectedCategory, setSelectedCategory] = useState("New");
   const [videos, setVideos] = useState([])
   
   useEffect(() => {
-    fetchFromApi(`search?part=snippet&q=${selectedCategory}`)
-    .then((data)=> setVideos(data.items));
-  }, [selectedCategory]);
+    fetchFromAPI(`search?part=snippet&q=${selectedCategory}`)
+      .then((data) => setVideos(data.items))
+    }, [selectedCategory]);
   return (
     <Stack sx={{ flexDirection: { sx: "column", md: "row" } }}>
       <Box
